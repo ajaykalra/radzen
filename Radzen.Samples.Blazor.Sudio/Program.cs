@@ -1,5 +1,6 @@
 using Radzen;
 using Blazor.Server.Sample.Components;
+using Blazor.Server.Sample.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddControllers();
 builder.Services.AddRadzenComponents();
+builder.Services.AddSingleton<IKubernetesService, KubernetesService>();
 
 builder.Services.AddRadzenCookieThemeService(options =>
 {
